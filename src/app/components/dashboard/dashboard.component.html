@@ -1,0 +1,19 @@
+<img src="../../../assets/logo.svg" alt="Logo">
+
+<h1>Explore repositórios no Github</h1>
+
+<form>
+  <input type="text" [(ngModel)]="newRepo" name="qlqcoisa" placeholder="Digite usuário/repositório aqui">
+  <button (click)="handleAddRepository($event)" >Pesquisar</button>
+</form>
+
+<div>
+	<a *ngFor="let repository of repositories" href="/teste">
+		<img src={{repository.owner.avatar_url}} alt={{repository.owner.login}}>
+		<div>
+			<strong>{{repository.full_name}}</strong>
+			<p>{{repository.description}}</p>
+    </div>
+    <i-feather name="chevron-right"></i-feather>
+	</a>
+</div>
