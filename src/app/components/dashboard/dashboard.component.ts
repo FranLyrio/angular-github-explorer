@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ApiService, Repository, Informations } from '../../services/api.service'
+import { ApiService, Repository, Issue } from '../../services/api.service'
 import { Router } from '@angular/router';
 
 @Component({
@@ -27,12 +27,7 @@ export class DashboardComponent implements OnInit {
     this.newRepo = '';
   }
 
-  handleReadRepository(repository) {
-    this.router.navigate(['/repositories'],
-    {
-      queryParams: [
-        { repositoryName: repository.full_name }
-      ]
-    });
+  handleReadRepository(repository: Repository) {
+    this.router.navigate(['/repositories'], { queryParams: { repositoryName: repository.full_name } });
   }
 }

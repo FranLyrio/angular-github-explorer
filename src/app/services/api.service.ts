@@ -45,7 +45,7 @@ export class ApiService {
 
   public repository;
 
-  constructor(public route: ActivatedRoute, private api: HttpClient) {}
+  constructor(public route: ActivatedRoute, public api: HttpClient) {}
 
   readRepository(newRepo: string): Promise<Repository> {
     return this.api.get<Repository>(`${this.url}/repos/${newRepo}`).toPromise();
