@@ -54,4 +54,8 @@ export class ApiService {
   readInformation(repositoryName: string): Promise<Informations> {
     return this.api.get<Informations>(`${this.url}/repos/${repositoryName}`).toPromise();
   }
+
+  readIssue(repositoryName: string) {
+    return this.api.get<Issue>(`${this.url}/repos/${repositoryName}/issues`).toPromise();
+  }
 }

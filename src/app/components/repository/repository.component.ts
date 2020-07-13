@@ -15,7 +15,7 @@ export class RepositoryComponent implements OnInit, OnDestroy {
 
   public repository: Informations;
 
-  public issue: Issue;
+  public issues: Issue;
 
   constructor(public api: ApiService, public activatedRoute: ActivatedRoute, public route: Router) {}
 
@@ -25,6 +25,12 @@ export class RepositoryComponent implements OnInit, OnDestroy {
      this.api.readInformation(params.repositoryName).then(response => {
        this.repository = response;
      })
+    });
+
+    this.subscriptionRouter = this.activatedRoute.queryParams.subscribe(params => {
+      this.api.readIssue(params.repositoryName).then(response => {
+        this.issues = response;
+      })
     });
   }
 

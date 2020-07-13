@@ -32,12 +32,12 @@
   </ul>
 </section>
 
-<!-- <div *ngIf="issue" id="issues">
+<div *ngFor="let issue of issues" id="issues">
   <a href="{{issue.html_url}}">
     <div>
       <strong>{{issue.title}}</strong>
-      <p>i{{issue.user.login}}</p>
+      <p>{{issue.user.login}}</p>
     </div>
     <i-feather name="chevron-right"></i-feather>
   </a>
-</div> -->
+</div>
