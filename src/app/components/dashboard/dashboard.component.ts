@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ApiService, Repository } from '../../services/api.service'
+import { ApiService, Repository, Informations } from '../../services/api.service'
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-dashboard',
@@ -7,15 +8,15 @@ import { ApiService, Repository } from '../../services/api.service'
   styleUrls: ['./dashboard.component.scss']
 })
 
+
 export class DashboardComponent implements OnInit {
   public newRepo;
 
   public repositories: Repository[] = [];
 
-  constructor(public api: ApiService) { }
+  constructor(public api: ApiService, private router: Router) {}
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   async handleAddRepository($event) {
     $event.preventDefault();
@@ -26,4 +27,12 @@ export class DashboardComponent implements OnInit {
     this.newRepo = '';
   }
 
+  handleReadRepository(repository) {
+    this.router.navigate(['/repositories'],
+    {
+      queryParams: [
+        { repositoryName: repository.full_name }
+      ]
+    });
+  }
 }

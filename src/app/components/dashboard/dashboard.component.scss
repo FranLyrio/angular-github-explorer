@@ -53,6 +53,7 @@ div {
     display: flex;
     align-items: center;
     text-decoration: none;
+    cursor: pointer;
     transition: transform 0.2s;
 
     & + a {
@@ -83,6 +84,10 @@ div {
         color: #a8a8b3;
         margin-top: 4px;
       }
+    }
+    i-feather {
+      margin-left: auto;
+      color: #cbcbd6;
     }
   }
 }

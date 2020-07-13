@@ -1,1 +1,43 @@
-<p>repository works!</p>
+<div id="header">
+  <img src="../../../assets/logo.svg" alt="logo">
+  <a href="/">
+    <i-feather name="chevron-left"></i-feather>
+    Voltar
+  </a>
+</div>
+
+<section *ngIf="repository">
+  <header>
+    <img src="{{repository.owner.avatar_url}}" alt="{{repository.owner.login}}">
+    <div id="repository-info" >
+      <strong>{{repository.full_name}}</strong>
+      <p>{{repository.description}}</p>
+    </div>
+  </header>
+  <ul>
+    <li>
+      <strong>{{repository.stargazers_count}}</strong>
+      <span>Stars</span>
+    </li>
+
+    <li>
+      <strong>{{repository.forks_count}}</strong>
+      <span>Forks</span>
+    </li>
+
+    <li>
+      <strong>{{repository.open_issues_count}}</strong>
+      <span>Issues abertas</span>
+    </li>
+  </ul>
+</section>
+
+<!-- <div *ngIf="issue" id="issues">
+  <a href="{{issue.html_url}}">
+    <div>
+      <strong>{{issue.title}}</strong>
+      <p>i{{issue.user.login}}</p>
+    </div>
+    <i-feather name="chevron-right"></i-feather>
+  </a>
+</div> -->

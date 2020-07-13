@@ -8,12 +8,12 @@
 </form>
 
 <div>
-	<a *ngFor="let repository of repositories" href="/teste">
+	<a *ngFor="let repository of repositories" (click)="handleReadRepository(repository)" >
 		<img src={{repository.owner.avatar_url}} alt={{repository.owner.login}}>
 		<div>
 			<strong>{{repository.full_name}}</strong>
 			<p>{{repository.description}}</p>
     </div>
     <i-feather name="chevron-right"></i-feather>
-	</a>
+  </a>
 </div>
